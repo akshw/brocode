@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "BroCode AI Helper",
+  "version": "1.0.0",
+  "description": "AI-powered assistant for solving coding problems on Kodnest App",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": ["https://app.kodnest.com/*"],
+  "action": {
+    "default_popup": "index.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://app.kodnest.com/my-learning/class/*"],
+      "js": ["src/contentScript.js"]
+    }
+  ],
+
+  "background": {
+    "service_worker": "src/background.js",
+    "type": "module"
+  }
+}
